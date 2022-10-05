@@ -1,6 +1,7 @@
+import { Payload } from "../Actions/index"
 interface get {
     type:"GET_COUNTRY",
-    payload: string
+    payload: Payload
 }
 interface close {
     type: "CLOSE_COUNTRY",

@@ -1,6 +1,7 @@
 import { Action } from "./actionLogic"
+import { Payload } from "../Actions/index"
 interface CountryState {
-    countries:string[]
+    countries:Payload[]
 }
 
 const initialState:CountryState = {
@@ -16,7 +17,7 @@ const reducer = (state = initialState, action: Action):CountryState =>{
         case "CLOSE_COUNTRY":
             return{
                 ...state,
-                countries: state.countries.filter(e=>e!==action.payload)
+                countries: state.countries.filter(e=>e.name!==action.payload)
             }
         default:
             return state
