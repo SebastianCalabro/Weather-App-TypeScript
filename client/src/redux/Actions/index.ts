@@ -1,13 +1,14 @@
 import axios from "axios";
 import { Dispatch } from "redux"
 import { Action } from "../Reducer/actionLogic";
-const { apiKey } = process.env;
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
 export interface Payload {
     name:string,
     max:string,
     min:string,
-    weather:string
+    weather:string,
+    id:number
 }
 
 /* export function createAction<T extends string, P>(type: T, payload: P): Action<T, P> {
@@ -16,22 +17,24 @@ export interface Payload {
 
 const action = {
     getCountry: function (city:string) {
+        console.log(REACT_APP_API_KEY)
         return async function (dispatch: Dispatch<Action>) {
-            await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${REACT_APP_API_KEY}&units=metric`)
             .then(data=> {console.log(data); return dispatch({
                 type:"GET_COUNTRY",
                 payload: {
                     name:data.data.name,
                     max:data.data.main.temp_max.toString(),
                     min:data.data.main.temp_min.toString(),
-                    weather: data.data.weather[0].description
+                    weather: data.data.weather[0].icon,
+                    id:data.data.id
                 }
             })})
         }
     },
     closeCountry: function (city:string) {
         return function (dispatch: Dispatch<Action>) {
-            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${REACT_APP_API_KEY}&units=metric`)
             .then(data=> {console.log(data); return dispatch({
                 type:"GET_COUNTRY",
                 payload: data.data.name
