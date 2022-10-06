@@ -9,9 +9,9 @@ import { useAppSelector, useAppDispatch } from '../../redux/app-store'
 
 export const Home = () => {
     const dispatch = useAppDispatch()
-    useEffect(()=>{
+    /* useEffect(()=>{
         dispatch(action.getCountry("London"))
-    },[])
+    },[]) */
     return (
         <div className={s.box}>
             <Cards/>

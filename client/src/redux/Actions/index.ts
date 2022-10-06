@@ -9,7 +9,7 @@ export interface Payload {
     weather:string
 }
 
-const apiKey = '4ae2636d8dfbdc3044bede63951a019b'
+const apiKey = 'cac896b5be37c00122f7640fc90898d2'
 
 /* export function createAction<T extends string, P>(type: T, payload: P): Action<T, P> {
     return { type, payload };
@@ -17,8 +17,8 @@ const apiKey = '4ae2636d8dfbdc3044bede63951a019b'
 
 const action = {
     getCountry: function (city:string) {
-        return function (dispatch: Dispatch<Action>) {
-            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+        return async function (dispatch: Dispatch<Action>) {
+            await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
             .then(data=> {console.log(data); return dispatch({
                 type:"GET_COUNTRY",
                 payload: {
