@@ -2,7 +2,8 @@
     position: absolute;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     justify-content: center;
     height: 78%;
     width: 90%;
