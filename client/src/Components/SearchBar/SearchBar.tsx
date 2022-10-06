@@ -1,11 +1,48 @@
+import react from "react"
+import { useState, ChangeEvent } from 'react';
 import s from "./SearchBar.module.css"
 import { FaSearch } from "react-icons/fa"
+import action from "../../redux/Actions";
+import { useAppDispatch, useAppSelector } from "../../redux/app-store";
+import Swal from "sweetalert2"
 
 export const SearchBar = ()=>{
+    const countries = useAppSelector(state=>state.countries)
+    const notCity = useAppSelector(state=>state.notCity)
+    const dispatch = useAppDispatch()
+    const [city, setCity] = useState("")
+
+    if(notCity){
+        Swal.fire({
+            title: 'Sorry :(',
+            text: 'That city does not exists',
+            icon: 'error',
+            confirmButtonText: 'OK!',
+          })
+          dispatch(action.noCityFalse())
+    }
+
+    const handleSubmit = (event: ChangeEvent<HTMLFormElement>)=>{
+        event.preventDefault()
+        const repeatedCity = countries.filter(c=>c.name===city)
+        if(repeatedCity.length < 1){
+            dispatch(action.getCountry(city))
+        }else{
+            Swal.fire({
+                title: 'Oops',
+                text: 'That city is already showed',
+                icon: 'error',
+                confirmButtonText: 'OK!',
+              })
+        }
+    }
+    const handleChange = (event:ChangeEvent<HTMLInputElement>) =>{
+        setCity(event.target.value)
+    }
     return(
         <div className={s.box}>
-            <form className={s.form}>
-                <input placeholder="Search city..." className={s.text_input} type="text"/>
+            <form onSubmit={handleSubmit} className={s.form}>
+                <input onChange={handleChange} placeholder="Search city..." className={s.text_input} type="text"/>
                 <button className={s.search_button} type="submit"><FaSearch className={s.search_icon}/></button>
             </form>
         </div>

@@ -1,17 +1,23 @@
+import { MouseEvent } from "react"
+import { useAppDispatch } from "../../redux/app-store"
 import s from "./Card.module.css"
-import { Payload } from "../../redux/Actions"
+import action, { Payload } from "../../redux/Actions"
 import { IoMdClose } from "react-icons/io"
 
 
 export const Card = (props:{city:Payload})=>{
-    console.log(props)
+    const dispatch = useAppDispatch()
+    const handleClose = (event:MouseEvent)=>{
+        dispatch(action.closeCountry(props.city.name))
+        
+    }
     return(
         <div className={s.box}>
             <div className={s.blured_background}></div>
             <div className={s.info_container}>
                 <div className={s.top_container}>
-                    <h1 className={s.city_name}>{props.city.name.toUpperCase()}</h1>
-                    <button className={s.close_button}><IoMdClose className={s.close_icon}/></button>
+                    <h1 className={s.city_name}>{props.city.name?props.city.name.toUpperCase():""}</h1>
+                    <button onClick={handleClose} className={s.close_button}><IoMdClose className={s.close_icon}/></button>
                 </div>
                 <div className={s.bottom_container}>
                     <div className={s.temp_container}>

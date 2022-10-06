@@ -7,4 +7,8 @@ interface close {
     type: "CLOSE_COUNTRY",
     payload:string
 }
-export type Action = get | close
+interface not{
+    type: "NO_COUNTRY",
+    payload:boolean
+}
+export type Action = get | close | not

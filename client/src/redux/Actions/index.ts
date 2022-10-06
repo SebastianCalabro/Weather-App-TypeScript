@@ -24,21 +24,31 @@ const action = {
                 type:"GET_COUNTRY",
                 payload: {
                     name:data.data.name,
-                    max:data.data.main.temp_max.toString(),
-                    min:data.data.main.temp_min.toString(),
+                    max:Math.round(data.data.main.temp_max).toString(),
+                    min:Math.round(data.data.main.temp_min).toString(),
                     weather: data.data.weather[0].icon,
                     id:data.data.id
                 }
             })})
+            .catch(e=>dispatch({
+                type:"NO_COUNTRY",
+                payload:true
+            }))
         }
     },
     closeCountry: function (city:string) {
         return function (dispatch: Dispatch<Action>) {
-            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${REACT_APP_API_KEY}&units=metric`)
-            .then(data=> {console.log(data); return dispatch({
-                type:"GET_COUNTRY",
-                payload: data.data.name
-            })})
+             dispatch({
+                type:"CLOSE_COUNTRY",
+                payload: city
+            })}
+        },
+    noCityFalse:function () {
+        return function (dispatch: Dispatch<Action>) {
+            dispatch({
+                type:"NO_COUNTRY",
+                payload:false
+            })
         }
     }
 }

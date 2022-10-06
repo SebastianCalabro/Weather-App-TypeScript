@@ -2,10 +2,12 @@ import { Action } from "./actionLogic"
 import { Payload } from "../Actions/index"
 interface CountryState {
     countries:Payload[]
+    notCity:boolean
 }
 
 const initialState:CountryState = {
-    countries:[]
+    countries:[],
+    notCity:false
 }
 const reducer = (state = initialState, action: Action):CountryState =>{
     switch(action.type){
@@ -15,9 +17,16 @@ const reducer = (state = initialState, action: Action):CountryState =>{
                 countries: state.countries.concat(action.payload)
             }
         case "CLOSE_COUNTRY":
+            const filteredCities = state.countries.filter(e=>e.name!==action.payload)
+            console.log("This is filteredCities", filteredCities)
             return{
                 ...state,
-                countries: state.countries.filter(e=>e.name!==action.payload)
+                countries: filteredCities
+            }
+        case "NO_COUNTRY":
+            return{
+                ...state,
+                notCity: action.payload
             }
         default:
             return state
