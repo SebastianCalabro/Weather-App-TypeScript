@@ -3,8 +3,13 @@
     height: 40%;
     width: 30%;
 /*     background-color: aqua; */
-    margin: 10px;
+    margin: 20px;
     border-radius: 10px;
+    transition: transform 0.2s;
+}
+.box:hover{
+    transform: scale(1.15);
+    cursor: default;
 }
 .blured_background{
     position: absolute;
@@ -27,8 +32,31 @@
     z-index: 200;
     color: white;
 }
+.city_name{
+    font-weight: 100;
+    letter-spacing: 0.3rem;
+    margin-top: 0.5rem;
+}
 .bottom_container{
     display: flex;
     flex-direction: row;
-    
+    height: 85%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+.temp_container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.icon_container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

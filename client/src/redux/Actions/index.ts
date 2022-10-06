@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "redux"
 import { Action } from "../Reducer/actionLogic";
+const { apiKey } = process.env;
 
 export interface Payload {
     name:string,
@@ -8,8 +9,6 @@ export interface Payload {
     min:string,
     weather:string
 }
-
-const apiKey = 'cac896b5be37c00122f7640fc90898d2'
 
 /* export function createAction<T extends string, P>(type: T, payload: P): Action<T, P> {
     return { type, payload };

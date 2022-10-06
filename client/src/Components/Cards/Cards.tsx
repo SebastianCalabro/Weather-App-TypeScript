@@ -11,8 +11,8 @@ export const Cards = ()=>{
     return(
         <div className={s.box}>
             {
-                fakeCity.length > 0 ?
-                fakeCity.map((c:Payload)=><Card city={c}/>) :
+                countries.length > 0 ?
+                countries.map((c:Payload)=><Card city={c}/>) :
                 ""
             }
         </div>
