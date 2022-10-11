@@ -27,7 +27,6 @@ export const SearchBar = ()=>{
 
     const handleSubmit = (event: ChangeEvent<HTMLFormElement>)=>{
         event.preventDefault()
-        console.log(input)
         input? input.value = "" : random = ""
         const repeatedCity = countries.filter(c=>c.name===city || c.name.toLowerCase()===city)
         if(repeatedCity.length < 1){

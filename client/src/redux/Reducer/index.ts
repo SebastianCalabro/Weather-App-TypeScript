@@ -18,7 +18,6 @@ const reducer = (state = initialState, action: Action):CountryState =>{
             }
         case "CLOSE_COUNTRY":
             const filteredCities = state.countries.filter(e=>e.name!==action.payload)
-            console.log("This is filteredCities", filteredCities)
             return{
                 ...state,
                 countries: filteredCities
