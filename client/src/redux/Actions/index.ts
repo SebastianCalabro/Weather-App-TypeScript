@@ -23,7 +23,7 @@ const action = {
              REACT_APP_DEPLOY_API_KEY :
              REACT_APP_API_KEY
              }&units=metric`)
-            .then(data=> {console.log(data); return dispatch({
+            .then(data=> {return dispatch({
                 type:"GET_COUNTRY",
                 payload: {
                     name:data.data.name,
