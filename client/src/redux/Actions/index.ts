@@ -21,12 +21,11 @@ const action = {
         console.log(REACT_APP_API_KEY)
         return async function (dispatch: Dispatch<Action>) {
             console.log("my city",city)
-            await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${/* 
+            await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
              REACT_APP_DEPLOY_API_KEY ?
              REACT_APP_DEPLOY_API_KEY :
-             REACT_APP_API_KEY ?
-             REACT_APP_API_KEY :
-              */"cac896b5be37c00122f7640fc90898d2"}&units=metric`)
+             REACT_APP_API_KEY
+             }&units=metric`)
             .then(data=> {console.log(data); return dispatch({
                 type:"GET_COUNTRY",
                 payload: {
