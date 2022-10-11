@@ -8,4 +8,16 @@
     height: 78%;
     width: 90%;
     z-index: 100;
+    overflow-y: auto;
+}
+.box::-webkit-scrollbar {
+    width: 1em;
+  }
+   
+  .box::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.534);
+  }
+.box::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.219);
+    backdrop-filter: blur(8px);
 }

@@ -16,7 +16,7 @@ export const Card = (props:{city:Payload})=>{
             <div className={s.blured_background}></div>
             <div className={s.info_container}>
                 <div className={s.top_container}>
-                    <h1 className={s.city_name}>{props.city.name?props.city.name.toUpperCase():""}</h1>
+                    <h1 className={props.city.name.length < 13?s.city_name:s.city_name_2}>{props.city.name?props.city.name.toUpperCase():""}</h1>
                     <button onClick={handleClose} className={s.close_button}><IoMdClose className={s.close_icon}/></button>
                 </div>
                 <div className={s.bottom_container}>
