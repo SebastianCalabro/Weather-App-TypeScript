@@ -54,4 +54,9 @@ body{
   }
   .swal2-html-container{
     font-family: Montserrat !important;
-  }
+}
+@media only screen and (min-width: 1600px){
+    .box{
+        transform: scale(1.4);
+    }
+}

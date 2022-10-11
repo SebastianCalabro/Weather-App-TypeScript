@@ -11,6 +11,9 @@ export const SearchBar = ()=>{
     const notCity = useAppSelector(state=>state.notCity)
     const dispatch = useAppDispatch()
     const [city, setCity] = useState("")
+    const input = document.querySelector("input")
+    let random:string = "a"
+    
 
     if(notCity){
         Swal.fire({
@@ -24,7 +27,9 @@ export const SearchBar = ()=>{
 
     const handleSubmit = (event: ChangeEvent<HTMLFormElement>)=>{
         event.preventDefault()
-        const repeatedCity = countries.filter(c=>c.name===city)
+        console.log(input)
+        input? input.value = "" : random = ""
+        const repeatedCity = countries.filter(c=>c.name===city || c.name.toLowerCase()===city)
         if(repeatedCity.length < 1){
             dispatch(action.getCountry(city))
         }else{
@@ -42,7 +47,7 @@ export const SearchBar = ()=>{
     return(
         <div className={s.box}>
             <form onSubmit={handleSubmit} className={s.form}>
-                <input onChange={handleChange} placeholder="Search city..." className={s.text_input} type="text"/>
+                <input id="rikitun" onChange={handleChange} placeholder="Search city..." className={s.text_input} type="text"/>
                 <button className={s.search_button} type="submit"><FaSearch className={s.search_icon}/></button>
             </form>
         </div>
