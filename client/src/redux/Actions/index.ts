@@ -20,7 +20,8 @@ const action = {
         console.log("deploy api key",REACT_APP_DEPLOY_API_KEY)
         console.log(REACT_APP_API_KEY)
         return async function (dispatch: Dispatch<Action>) {
-            await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${/* 
+            console.log("my city",city)
+            await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${/* 
              REACT_APP_DEPLOY_API_KEY ?
              REACT_APP_DEPLOY_API_KEY :
              REACT_APP_API_KEY ?
