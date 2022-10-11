@@ -5,7 +5,6 @@ import { Payload } from "../../redux/Actions"
 
 export const Cards = ()=>{
     const countries = useAppSelector(state=>state.countries)
-    console.log(countries)
     return(
         <div className={s.box}>
             {
