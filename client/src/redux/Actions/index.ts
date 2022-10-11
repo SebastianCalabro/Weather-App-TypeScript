@@ -2,7 +2,7 @@ import axios from "axios";
 import { Dispatch } from "redux"
 import { Action } from "../Reducer/actionLogic";
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
-const DEPLOY_API_KEY = process.env.REACT_APP_DEPLOY_API_KEY;
+const REACT_APP_DEPLOY_API_KEY = process.env.REACT_APP_DEPLOY_API_KEY;
 export interface Payload {
     name:string,
     max:string,
@@ -17,11 +17,16 @@ export interface Payload {
 
 const action = {
     getCountry: function (city:string) {
-        console.log(process.env.MY_API_KEY)
-console.log(process.env.REACT_APP_MY_API_KEY)
+        console.log("deploy api key",REACT_APP_DEPLOY_API_KEY)
         console.log(REACT_APP_API_KEY)
         return async function (dispatch: Dispatch<Action>) {
-            await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${REACT_APP_API_KEY}&units=metric`)
+            await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
+             REACT_APP_DEPLOY_API_KEY ?
+             REACT_APP_DEPLOY_API_KEY :
+             REACT_APP_API_KEY ?
+             REACT_APP_API_KEY :
+             "cac896b5be37c00122f7640fc90898d2"
+            }&units=metric`)
             .then(data=> {console.log(data); return dispatch({
                 type:"GET_COUNTRY",
                 payload: {
