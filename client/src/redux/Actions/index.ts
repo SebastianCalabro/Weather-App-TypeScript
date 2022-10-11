@@ -1,9 +1,8 @@
 import axios from "axios";
 import { Dispatch } from "redux"
 import { Action } from "../Reducer/actionLogic";
-const REACT_APP_API_KEY = process.env.MY_API_KEY? process.env.MY_API_KEY: process.env.REACT_APP_MY_API_KEY? process.env.REACT_APP_MY_API_KEY:  process.env.REACT_APP_API_KEY;
-console.log(process.env.MY_API_KEY)
-console.log(process.env.REACT_APP_MY_API_KEY)
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
+const DEPLOY_API_KEY = process.env.REACT_APP_DEPLOY_API_KEY;
 export interface Payload {
     name:string,
     max:string,
