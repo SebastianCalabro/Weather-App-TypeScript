@@ -470,6 +470,52 @@ export const Home = () => {
                         <MdWbSunny className={s.icons}/>
                     </div>
                 </div>
+                <div className={s.row}>
+                    <div className={s.line}>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                    </div>
+                    <div className={s.line}>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                        <BsFillCloudyFill className={s.icons}/>
+                        <MdWbSunny className={s.icons}/>
+                    </div>
+                </div>
             </section>
         </div>
     )

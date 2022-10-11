@@ -83,3 +83,9 @@ section .row:nth-child(even) div:nth-child(2){
         transform: translateX(0%);
     }
 }
+@media only screen and (min-width: 1600px){
+    .icons{
+        height: 12rem;
+        width: 12rem;
+    }
+}
